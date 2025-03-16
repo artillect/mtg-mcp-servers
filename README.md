@@ -1,6 +1,6 @@
 # MTG Deck Manager MCP Servers
 
-This project provides Machine-Comprehensible Protocol (MCP) servers for interacting with Magic: The Gathering decks and card information directly through Claude.
+This project provides Model Context Protocol (MCP) servers for interacting with Magic: The Gathering decks and card information directly through Claude.
 
 ## Features
 
