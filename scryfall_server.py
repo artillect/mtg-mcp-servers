@@ -58,7 +58,7 @@ async def search_cards(query: str) -> str:
     Args:
         query: A search query using Scryfall's syntax
     """
-    url = f"{API_BASE}/cards/search?q={httpx.QueryParams({'q': query})}"
+    url = f"{API_BASE}/cards/search?q={query}"
     data = await make_scryfall_request(url)
     
     if not data or "error" in data:
@@ -88,7 +88,7 @@ async def get_random_card(query: Optional[str] = None) -> str:
     """
     url = f"{API_BASE}/cards/random"
     if query:
-        url = f"{url}?q={httpx.QueryParams({'q': query})}"
+        url = f"{url}?q={query}"
     
     data = await make_scryfall_request(url)
     
@@ -106,7 +106,7 @@ async def get_card_by_name(name: str, fuzzy: bool = True) -> str:
         fuzzy: Whether to use fuzzy name matching (default: True)
     """
     search_type = "fuzzy" if fuzzy else "exact"
-    url = f"{API_BASE}/cards/named?{search_type}={httpx.QueryParams({search_type: name})}"
+    url = f"{API_BASE}/cards/named?{search_type}={name}"
     
     data = await make_scryfall_request(url)
     
